@@ -22,7 +22,7 @@ namespace WcfSoapStudent
         [OperationContract]
         string EditStudent(string navn, string efternavn, string klasse, int id);
         [OperationContract]
-        string GetAllStudent();
+        List<Student> GetAllStudent();
 
         [OperationContract]
         string GetData(int value);

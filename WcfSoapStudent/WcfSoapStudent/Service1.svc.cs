@@ -12,7 +12,7 @@ namespace WcfSoapStudent
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        static readonly List<Student> Studentlist = new List<Student>(); 
+        static List<Student> Studentlist = new List<Student>(); 
         public string AddStudent(string navn, string efternavn, string klasse, int id)
         {
             var student = new Student(navn, efternavn, klasse, id);
@@ -53,13 +53,9 @@ namespace WcfSoapStudent
         /// Virker ikke helt. (returnere ikke alt)
         /// </summary>
         /// <returns></returns>
-        public string GetAllStudent()
+        public List<Student> GetAllStudent()
         {
-            foreach (Student student in Studentlist)
-            {
-                return student.ToString();
-            }
-            throw new ArgumentException("Ikke nogle studenter.");
+            return Studentlist;
         }
 
         public string GetData(int value)
