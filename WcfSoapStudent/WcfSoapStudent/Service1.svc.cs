@@ -29,19 +29,37 @@ namespace WcfSoapStudent
             return selected;
         }
 
-        public Student RemoveStudent()
+        public string RemoveStudent(int id)
         {
-            throw new NotImplementedException();
+            var selected = Studentlist.FirstOrDefault(find => find.ID == id);
+            Studentlist.Remove(selected);
+            return "succesfull Removal";
         }
 
-        public string EditStudent()
+        public string EditStudent(string navn, string efternavn, string klasse, int id)
         {
-            throw new NotImplementedException();
+            var selected = Studentlist.FirstOrDefault(find => find.ID == id);
+            Studentlist.Remove(selected);
+
+            var student = new Student(navn, efternavn, klasse, id);
+
+            Studentlist.Add(student);
+
+            return student.ToString();
+
         }
 
+        /// <summary>
+        /// Virker ikke helt. (returnere ikke alt)
+        /// </summary>
+        /// <returns></returns>
         public string GetAllStudent()
         {
-            throw new NotImplementedException();
+            foreach (Student student in Studentlist)
+            {
+                return student.ToString();
+            }
+            throw new ArgumentException("Ikke nogle studenter.");
         }
 
         public string GetData(int value)
@@ -62,9 +80,5 @@ namespace WcfSoapStudent
             return composite;
         }
 
-        Student IService1.RemoveStudent()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

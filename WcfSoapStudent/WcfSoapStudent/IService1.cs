@@ -18,9 +18,9 @@ namespace WcfSoapStudent
         [OperationContract]
         Student FindStudent(int id);
         [OperationContract]
-        Student RemoveStudent();
+        string RemoveStudent(int id);
         [OperationContract]
-        string EditStudent();
+        string EditStudent(string navn, string efternavn, string klasse, int id);
         [OperationContract]
         string GetAllStudent();
 
