@@ -18,8 +18,8 @@ namespace WcfSoapStudent
         [DataMember]
         public int ID { get; set; }
 
-        private int id = 0;
-        public Student(string navn, string efternavn, string klasse)
+        
+        public Student(string navn, string efternavn, string klasse, int id)
         {
             Navn = navn;
             Efternavn = efternavn;

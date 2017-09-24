@@ -13,11 +13,10 @@ namespace WcfSoapStudent
     public class Service1 : IService1
     {
         static readonly List<Student> Studentlist = new List<Student>(); 
-        public string AddStudent(string navn, string efternavn, string klasse)
+        public string AddStudent(string navn, string efternavn, string klasse, int id)
         {
-            var student = new Student(navn, efternavn, klasse);
+            var student = new Student(navn, efternavn, klasse, id);
 
-            student.ID++;
             Studentlist.Add(student);
             
             return student.ToString();

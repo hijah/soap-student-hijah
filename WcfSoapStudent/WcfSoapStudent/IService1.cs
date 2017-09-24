@@ -14,7 +14,7 @@ namespace WcfSoapStudent
     {
 
         [OperationContract]
-        string AddStudent(string navn, string efternavn, string klasse);
+        string AddStudent(string navn, string efternavn, string klasse, int id);
         [OperationContract]
         Student FindStudent(int id);
         [OperationContract]
