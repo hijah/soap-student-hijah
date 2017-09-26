@@ -15,7 +15,7 @@ namespace WcfSoapStudentConsumer
                 bool stop = false;
                 while (stop == false)
                 {
-                    Console.WriteLine("Skriv hvad du vil gøre med programmet." + "\n" + "Funktionerne står nedenudner" + "\n" + "Tilføj" + "\n" + "Slet" + "\n" + "Rediger" + "\n" + "Find" + "\n" + "Se alle studenter" + "\n");
+                    Console.WriteLine("Skriv hvad du vil gøre med programmet." + "\n" + "Funktionerne står nedenudner" + "\n" + "Tilføj" + "\n" + "Slet" + "\n" + "Rediger" + "\n" + "Find" + "\n" + "Se alle studenter" + "\n" + "Stop");
                     string funktion = Console.ReadLine();
                     if (funktion.ToLower() == "tilføj")
                     {
@@ -29,7 +29,7 @@ namespace WcfSoapStudentConsumer
                         int id = Convert.ToInt32(Console.ReadLine());
                         client.AddStudent(navn, efternavn, klasse, id);
                         Console.WriteLine("\n" + "Studenten " + navn + " " + efternavn + " " + klasse + " " + id + " " + "blev tilføjet." + "\n" + "Tryk på en knap for at fortsætte" + "\n" + "\n" + "\n");
-                        Console.ReadKey();
+                        
                     }
                     else if (funktion.ToLower() == "slet")
                     {
@@ -37,7 +37,7 @@ namespace WcfSoapStudentConsumer
                         int id = Convert.ToInt32(Console.ReadLine());
                         client.RemoveStudent(id);
                         Console.WriteLine("Studenten med id'et: " + id + "Blev fjernet fra de studerende." + "\n" + "Tryk på en knap for at fortsætte" + "\n" + "\n" + "\n");
-                        Console.ReadKey();
+                        
                     }
                     else if (funktion.ToLower() == "rediger")
                     {
@@ -51,7 +51,7 @@ namespace WcfSoapStudentConsumer
                         string klasse = Console.ReadLine();
                         client.EditStudent(navn, efternavn, klasse, id);
                         Console.WriteLine("\n" + "Studenten er blevet redigeret til: " + navn + " " + efternavn + " " + klasse + "\n" + "Tryk på en knap for at fortsætte" + "\n" + "\n" + "\n");
-                        Console.ReadKey();
+                        
                     }
                     else if (funktion.ToLower() == "find")
                     {
@@ -61,17 +61,18 @@ namespace WcfSoapStudentConsumer
                         string efternavn = client.FindStudent(id).Efternavn;
                         string klasse = client.FindStudent(id).Klasse;
                         Console.WriteLine("studenten du leder efter er: " + navn + " " + efternavn + " " + klasse + " " + id + "\n" + "Tryk på en knap for at fortsætte" + "\n" + "\n" + "\n");
-                        Console.ReadKey();
+                        
                     }
-                    //else if (funktion.ToLower() == "se alle studenter")
-                    //{
-                    //    client.GetAllStudent();
-                    //    foreach (var student in )
-                    //    {
-                    //        Console.WriteLine("Studentens navn: " + student.Navn + " " + student.Efternavn + "\n" + " Studentens klasse: " + student.Klasse + "\n" + "Studentens id: " + student.ID);
-                            
-                    //    }
-                    //}
+                    else if (funktion.ToLower() == "se alle studenter")
+                    {
+                        
+                        foreach (var student in client.GetAllStudent())
+                        {
+                            Console.WriteLine("Studentens navn: " + student.Navn + " " + student.Efternavn + "\n" + " Studentens klasse: " + student.Klasse + "\n" + "Studentens id: " + student.ID + "\n" + "Tryk på en knap for at fortsætte" + "\n" + "\n" + "\n");
+
+                        }
+
+                    }
                     else if (funktion.ToLower() == "stop")
                     {
                         stop = true;
@@ -79,7 +80,7 @@ namespace WcfSoapStudentConsumer
                     else if (funktion == "")
                     {
                         Console.WriteLine("du skal skrive hvilken funktion du vil bruge." + "\n" + "\n" + "Tryk på en knap for at fortsætte" + "\n" + "\n" + "\n");
-                        Console.ReadKey();
+                        
                     }
                 }
             }

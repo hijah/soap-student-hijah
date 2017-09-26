@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace WcfSoapStudentConsumer.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
@@ -19,8 +17,7 @@ namespace WcfSoapStudentConsumer.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://schemas.datacontract.org/2004/07/WcfSoapStudent")]
     [System.SerializableAttribute()]
-    public partial class Student : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged, IDisposable
-    {
+    public partial class Student : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -106,11 +103,6 @@ namespace WcfSoapStudentConsumer.ServiceReference1 {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
     
@@ -204,10 +196,10 @@ namespace WcfSoapStudentConsumer.ServiceReference1 {
         System.Threading.Tasks.Task<string> EditStudentAsync(string navn, string efternavn, string klasse, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllStudent", ReplyAction="http://tempuri.org/IService1/GetAllStudentResponse")]
-        string GetAllStudent();
+        WcfSoapStudentConsumer.ServiceReference1.Student[] GetAllStudent();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllStudent", ReplyAction="http://tempuri.org/IService1/GetAllStudentResponse")]
-        System.Threading.Tasks.Task<string> GetAllStudentAsync();
+        System.Threading.Tasks.Task<WcfSoapStudentConsumer.ServiceReference1.Student[]> GetAllStudentAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
@@ -281,11 +273,11 @@ namespace WcfSoapStudentConsumer.ServiceReference1 {
             return base.Channel.EditStudentAsync(navn, efternavn, klasse, id);
         }
         
-        public string GetAllStudent() {
+        public WcfSoapStudentConsumer.ServiceReference1.Student[] GetAllStudent() {
             return base.Channel.GetAllStudent();
         }
         
-        public System.Threading.Tasks.Task<string> GetAllStudentAsync() {
+        public System.Threading.Tasks.Task<WcfSoapStudentConsumer.ServiceReference1.Student[]> GetAllStudentAsync() {
             return base.Channel.GetAllStudentAsync();
         }
         
