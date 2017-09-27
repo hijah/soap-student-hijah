@@ -26,6 +26,11 @@ namespace WcfSoapStudent
             Klasse = klasse;
             ID = id;
         }
+
+        public Student()
+        {
+            
+        }
         
         
         public override string ToString()

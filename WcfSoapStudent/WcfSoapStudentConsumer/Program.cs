@@ -15,7 +15,7 @@ namespace WcfSoapStudentConsumer
                 bool stop = false;
                 while (stop == false)
                 {
-                    Console.WriteLine("Skriv hvad du vil gøre med programmet." + "\n" + "Funktionerne står nedenudner" + "\n" + "Tilføj" + "\n" + "Slet" + "\n" + "Rediger" + "\n" + "Find" + "\n" + "Se alle studenter" + "\n" + "Stop");
+                    Console.WriteLine("Skriv hvad du vil gøre med programmet." + "\n" + "Funktionerne står nedenunder" + "\n" + "Tilføj" + "\n" + "Slet" + "\n" + "Rediger" + "\n" + "Find" + "\n" + "Se alle studenter" + "\n" + "Stop");
                     string funktion = Console.ReadLine();
                     if (funktion.ToLower() == "tilføj")
                     {
